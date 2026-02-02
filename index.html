@@ -6,129 +6,171 @@
     <title>For My Pookie ❤️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-        
-        body { 
-            margin: 0; 
-            background-color: #fce4ec; 
-            font-family: 'Fredoka One', cursive; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            text-align: center; 
-            color: #880e4f; 
+
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            font-family: 'Fredoka One', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: #880e4f;
         }
 
-        .card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 30px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-            width: 90%; 
-            max-width: 400px; 
-            display: none; 
-            animation: popIn 0.5s ease; 
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 2px solid white;
+            box-shadow: 0 15px 35px rgba(255, 138, 174, 0.3);
+            width: 85%;
+            max-width: 400px;
+            display: none;
+            animation: slideUp 0.6s ease-out;
         }
 
         .active { display: block; }
 
-        img { 
-            width: 200px; 
-            height: 200px; 
-            object-fit: contain; 
-            margin-bottom: 10px; 
-            border-radius: 15px; 
+        /* Custom Emoji "Bears" Animations */
+        .bear-container {
+            font-size: 80px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
         }
 
-        .btn { 
-            background-color: #ff4081; 
-            color: white; 
-            border: none; 
-            padding: 12px 25px; 
-            font-size: 18px; 
-            border-radius: 15px; 
-            cursor: pointer; 
-            margin: 10px; 
+        /* Day 1: Rose Slide */
+        .rose-slide { position: absolute; animation: roseMove 2s infinite; }
+        @keyframes roseMove {
+            0% { transform: translateX(-40px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(40px); opacity: 0; }
         }
 
-        .no-btn { background-color: #f06292; }
+        /* Day 5: The Squishy Hug */
+        .hug-l { animation: hugL 1.5s infinite; }
+        .hug-r { animation: hugR 1.5s infinite; margin-left: -35px; }
+        @keyframes hugL { 50% { transform: translateX(35px) rotate(15deg); } }
+        @keyframes hugR { 50% { transform: translateX(-35px) rotate(-15deg); } }
 
-        h1 { font-size: 22px; margin: 10px 0; }
-        p { font-size: 16px; opacity: 0.8; margin-bottom: 20px; }
-
-        @keyframes popIn { 
-            from { transform: scale(0.8); opacity: 0; } 
-            to { transform: scale(1); opacity: 1; } 
+        /* Buttons */
+        .btn {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
         }
+
+        .btn:active { transform: scale(0.95); }
+
+        .no-btn {
+            background: #f06292;
+            position: absolute;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { font-size: 24px; margin: 0; }
+        p { font-size: 16px; margin-top: 10px; font-weight: normal; }
     </style>
 </head>
 <body>
 
     <div id="p0" class="card active">
-        <img src="https://media.tenor.com/9tHof_NAs38AAAAM/milk-and-mocha-bear-couple.gif">
+        <div class="bear-container">🧸💖🧸</div>
         <h1>Ready for 7 days of love?</h1>
-        <button class="btn" onclick="go(1)">YES</button>
-        <button id="noBtn" class="btn no-btn" onclick="go('No')">NO</button>
+        <button class="btn" onclick="go(1)">YES!</button>
+        <button id="noBtn" class="btn no-btn" onmouseover="moveNo()" onclick="moveNo()">NO</button>
     </div>
 
     <div id="pNo" class="card">
-        <img src="https://media.tenor.com/866uX8Y1Y_0AAAAM/milk-and-mocha.gif">
-        <h1>Why did u click no!? 🥺</h1>
-        <button class="btn" onclick="go(0)">TRY AGAIN</button>
+        <div class="bear-container">🥺🐾</div>
+        <h1>Why you click no pls?</h1>
+        <button class="btn" onclick="go(0)">I'm sorry, try again!</button>
     </div>
 
     <div id="p1" class="card">
-        <img src="https://media.tenor.com/T0_4Y_WlI70AAAAM/milk-and-mocha-rose.gif">
+        <div class="bear-container">🧸<span class="rose-slide">🌹</span>🧸</div>
         <p>Phool for my fool</p>
         <h1>HAPPY ROSE DAY</h1>
-        <button class="btn" onclick="go(2)">Next Page ➔</button>
+        <button class="btn" onclick="go(2)">Next Day ➔</button>
     </div>
 
     <div id="p2" class="card">
-        <img src="https://media.tenor.com/T2640sI6J9QAAAAM/milk-and-mocha.gif">
+        <div class="bear-container">🧎🧸💍🧸</div>
         <p>Will you be mine?</p>
         <h1>HAPPY PROPOSE DAY</h1>
-        <button class="btn" onclick="go(3)">Next Page ➔</button>
+        <button class="btn" onclick="go(3)">Next Day ➔</button>
     </div>
 
     <div id="p3" class="card">
-        <img src="https://media.tenor.com/y_vDeyXpWc0AAAAM/milk-and-mocha.gif">
+        <div class="bear-container">🧸🍫🧸</div>
         <p>I ate ur chocolate otw</p>
         <h1>HAPPY CHOCOLATE DAY</h1>
-        <button class="btn" onclick="go(4)">Next Page ➔</button>
+        <button class="btn" onclick="go(4)">Next Day ➔</button>
     </div>
 
     <div id="p4" class="card">
-        <img src="https://media.tenor.com/5u-j_w977jUAAAAM/milk-and-mocha.gif">
+        <div class="bear-container">🤝🧸🧸</div>
         <p>I promise to stay by ur side</p>
         <h1>HAPPY PROMISE DAY</h1>
-        <button class="btn" onclick="go(5)">Next Page ➔</button>
+        <button class="btn" onclick="go(5)">Next Day ➔</button>
     </div>
 
     <div id="p5" class="card">
-        <img src="https://media.tenor.com/vHqY7Y4YnOAAAAAM/milk-and-mocha.gif">
+        <div class="bear-container">
+            <span class="hug-l">🧸</span><span class="hug-r">🧸</span>
+        </div>
         <p>Virtual hug for ya!</p>
         <h1>HAPPY HUG DAY</h1>
-        <button class="btn" onclick="go(6)">Next Page ➔</button>
+        <button class="btn" onclick="go(6)">Next Day ➔</button>
     </div>
 
     <div id="p6" class="card">
-        <img src="https://media.tenor.com/8U_Lw4S7Wv8AAAAM/milk-and-mocha.gif">
+        <div class="bear-container">🧸💋🧸</div>
         <p>You wear my kisses better than me</p>
         <h1>HAPPY KISS DAY</h1>
-        <button class="btn" onclick="go(7)">Final Page ➔</button>
+        <button class="btn" onclick="go(7)">Final Day ➔</button>
     </div>
 
     <div id="p7" class="card">
-        <img src="https://media.tenor.com/7YV8S8Vn9uQAAAAM/milk-and-mocha.gif">
+        <div class="bear-container">✨🧸💖🧸✨</div>
         <h1>HAPPY VALENTINE'S DAY</h1>
-        <p>Forever yours! ❤️</p>
+        <p>I love you forever! ❤️</p>
+        <button class="btn" onclick="location.reload()">Restart Love</button>
     </div>
 
     <script>
         function go(n) {
             document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
             document.getElementById('p' + n).classList.add('active');
+        }
+
+        function moveNo() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+            // Also triggers the "Why" screen if they manage to click
+            go('No');
         }
     </script>
 </body>
