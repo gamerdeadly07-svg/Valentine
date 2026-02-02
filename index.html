@@ -3,126 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7 Days of Love 🧸</title>
+    <title>For My Pookie ❤️</title>
     <style>
-        body { margin: 0; background: #fff0f3; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; text-align: center; }
-        .slide { display: none; width: 100%; max-width: 450px; animation: fadeIn 0.5s ease-in-out; }
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+        body { margin: 0; background-color: #fce4ec; font-family: 'Fredoka One', cursive; display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; color: #880e4f; }
+        .card { background: white; padding: 30px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); width: 90%; max-width: 400px; display: none; animation: popIn 0.5s ease; position: relative; }
         .active { display: block; }
-
-        /* Animation Stage */
-        .scene { height: 180px; display: flex; justify-content: center; align-items: center; font-size: 80px; position: relative; }
-        .teddy { position: relative; transition: 0.5s; display: inline-block; }
-
-        /* Day 1: Rose Slide */
-        .rose-move { position: absolute; animation: roseSlide 2s infinite; font-size: 40px; }
-        @keyframes roseSlide { 0% { transform: translateX(-60px); opacity:0; } 50% { opacity:1; } 100% { transform: translateX(60px); opacity:0; } }
-
-        /* Day 2: Propose (The Kneel) */
-        .kneel-teddy { animation: kneel 2s infinite; }
-        .ring-pop { animation: ringAppear 2s infinite; font-size: 40px; }
-        @keyframes kneel { 50% { transform: translateY(30px) rotate(-10deg); } }
-        @keyframes ringAppear { 0%, 100% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; transform: scale(1.2); } }
-
-        /* Day 3: Chocolate (The Munch) */
-        .choco-munch { animation: munching 0.6s infinite alternate; font-size: 50px; }
-        @keyframes munching { from { transform: scale(1); } to { transform: scale(1.3) rotate(15deg); } }
-
-        /* Day 4: Promise (Pinky Swear) */
-        .hand-l { animation: reachL 1.5s infinite alternate; }
-        .hand-r { animation: reachR 1.5s infinite alternate; }
-        @keyframes reachL { from { transform: translateX(-20px); } to { transform: translateX(10px); } }
-        @keyframes reachR { from { transform: translateX(20px); } to { transform: translateX(-10px); } }
-
-        /* Day 5: Hug (The Overlap) */
-        .hug-l { animation: hugL 1.5s infinite; z-index: 5; }
-        .hug-r { animation: hugR 1.5s infinite; margin-left: -40px; }
-        @keyframes hugL { 50% { transform: translateX(45px) rotate(15deg); } }
-        @keyframes hugR { 50% { transform: translateX(-45px) rotate(-15deg); } }
-
-        /* Day 6: Kiss (The Smooch) */
-        .kiss-l { animation: leanL 1.5s infinite; }
-        .kiss-r { animation: leanR 1.5s infinite; }
-        .muah { position: absolute; opacity:0; animation: kiss 1.5s infinite; }
-        @keyframes leanL { 50% { transform: translateX(20px) rotate(5deg); } }
-        @keyframes leanR { 50% { transform: translateX(-20px) rotate(-5deg); } }
-        @keyframes kiss { 50% { opacity:1; transform: translateY(-60px) scale(1.5); } }
-
-        /* UI */
-        .btn { background: #ff477e; color: white; border: none; padding: 15px 30px; border-radius: 30px; cursor: pointer; font-size: 18px; margin-top: 20px; font-weight: bold; }
-        .no-btn { background: white; color: #ff477e; position: absolute; border: 1px solid #ff477e; }
-        h1 { color: #800e13; margin: 10px 0; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        img { width: 180px; height: auto; margin-bottom: 10px; border-radius: 15px; }
+        .btn { background-color: #ff4081; color: white; border: none; padding: 12px 25px; font-size: 18px; border-radius: 15px; cursor: pointer; margin: 10px; transition: 0.3s; }
+        .no-btn { background-color: #f06292; position: relative; }
+        h1 { font-size: 22px; margin: 10px 0; }
+        p { font-size: 16px; opacity: 0.8; margin-bottom: 20px; }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <div id="day0" class="slide active">
-        <div class="scene">🧸💖🧸</div>
+    <div id="p0" class="card active">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
         <h1>Ready for 7 days of love?</h1>
-        <button class="btn" onclick="next(1)">Yes</button>
-        <button id="no-btn" class="btn no-btn" onmouseover="moveNo()">No</button>
+        <button class="btn" onclick="go(1)">YES</button>
+        <button id="noBtn" class="btn no-btn" onmouseover="go('No')" onclick="go('No')">NO</button>
     </div>
 
-    <div id="day1" class="slide">
-        <div class="scene"><span class="teddy">🧸</span><span class="rose-move">🌹</span><span class="teddy">🧸</span></div>
-        <h1>Happy Rose Day</h1>
-        <p>Slide phool for my fool 🌹</p>
-        <button class="btn" onclick="next(2)">Next Day ➔</button>
+    <div id="pNo" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/T1Wq6IbA6Qk5G/giphy.gif">
+        <h1>Why did u click no!? 🥺</h1>
+        <button class="btn" onclick="go(0)">TRY AGAIN</button>
     </div>
 
-    <div id="day2" class="slide">
-        <div class="scene"><span class="teddy kneel-teddy">🧸</span><span class="ring-pop">💍</span><span class="teddy">🧸</span></div>
-        <h1>Happy Propose Day</h1>
-        <p>Will you stay with me forever? ✨</p>
-        <button class="btn" onclick="next(3)">Next Day ➔</button>
+    <div id="p1" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <p>Phool for my fool</p>
+        <h1>HAPPY ROSE DAY</h1>
+        <button class="btn" onclick="go(2)">Next Day ➔</button>
     </div>
 
-    <div id="day3" class="slide">
-        <div class="scene"><span class="teddy">🧸</span><span class="choco-munch">🍫</span><span class="teddy">🧸</span></div>
-        <h1>Happy Chocolate Day</h1>
-        <p>Something sweet for my sweetie 🍫</p>
-        <button class="btn" onclick="next(4)">Next Day ➔</button>
+    <div id="p2" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/3og0IPxMM0er_vKkOk/giphy.gif">
+        <p>Will you be mine?</p>
+        <h1>HAPPY PROPOSE DAY</h1>
+        <button class="btn" onclick="go(3)">Next Day ➔</button>
     </div>
 
-    <div id="day4" class="slide">
-        <div class="scene"><span class="teddy hand-l">🧸</span><span style="font-size:40px;">🤝</span><span class="teddy hand-r">🧸</span></div>
-        <h1>Happy Promise Day</h1>
-        <p>I promise to never let go 🤝</p>
-        <button class="btn" onclick="next(5)">Next Day ➔</button>
+    <div id="p3" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <p>I ate ur chocolate otw</p>
+        <h1>HAPPY CHOCOLATE DAY</h1>
+        <button class="btn" onclick="go(4)">Next Day ➔</button>
     </div>
 
-    <div id="day5" class="slide">
-        <div class="scene"><span class="teddy hug-l">🧸</span><span class="teddy hug-r">🧸</span></div>
-        <h1>Happy Hug Day</h1>
-        <p>A big squishy teddy hug! 🫂</p>
-        <button class="btn" onclick="next(6)">Next Day ➔</button>
+    <div id="p4" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <p>I promise to stay by ur side</p>
+        <h1>HAPPY PROMISE DAY</h1>
+        <button class="btn" onclick="go(5)">Next Day ➔</button>
     </div>
 
-    <div id="day6" class="slide">
-        <div class="scene"><span class="teddy kiss-l">🧸</span><span class="muah">💋</span><span class="teddy kiss-r">🧸</span></div>
-        <h1>Happy Kiss Day</h1>
-        <p>Sending you a million kisses 💋</p>
-        <button class="btn" onclick="next(7)">Final Day ➔</button>
+    <div id="p5" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <p>Virtual hug for ya!</p>
+        <h1>HAPPY HUG DAY</h1>
+        <button class="btn" onclick="go(6)">Next Day ➔</button>
     </div>
 
-    <div id="day7" class="slide">
-        <div class="scene">💝🧸❤️🧸💝</div>
-        <h1>Happy Valentine's Day!</h1>
-        <p>You are my whole world. I love you! ❤️</p>
-        <button class="btn" onclick="location.reload()">Restart Love ✨</button>
+    <div id="p6" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <p>You wear my kisses better than me</p>
+        <h1>HAPPY KISS DAY</h1>
+        <button class="btn" onclick="go(7)">Final Day ➔</button>
+    </div>
+
+    <div id="p7" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <h1>HAPPY VALENTINE'S DAY</h1>
+        <p>Forever and always! ❤️</p>
     </div>
 
     <script>
-        function next(n) {
-            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-            document.getElementById('day' + n).classList.add('active');
-        }
-
-        function moveNo() {
-            const btn = document.getElementById('no-btn');
-            btn.style.left = Math.random() * 70 + 'vw';
-            btn.style.top = Math.random() * 70 + 'vh';
-            btn.innerText = "Why click no pls? 🥺";
+        function go(n) {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.getElementById('p' + n).classList.add('active');
         }
     </script>
 </body>
