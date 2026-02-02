@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Days of Love 🧸</title>
+    <style>
+        :root {
+            --romantic-pink: #ffafbd;
+            --deep-rose: #ffc3a0;
+            --heart-color: rgba(255, 182, 193, 0.4);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--romantic-pink), var(--deep-rose));
+            background-attachment: fixed;
+            color: #d32f2f;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* Floating Hearts Background */
+        .heart {
+            position: fixed;
+            color: var(--heart-color);
+            font-size: 20px;
+            z-index: -1;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        .hidden { display: none; }
+
+        /* Cards Style */
+        .day-card {
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 20px;
+            width: 85%;
+            max-width: 450px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 2px solid #fff;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .teddy-box { font-size: 50px; margin: 10px; animation: bounce 2s infinite; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn { padding: 15px 40px; font-size: 20px; cursor: pointer; border: none; border-radius: 50px; transition: 0.3s; font-weight: bold; }
+        .yes-btn { background: #ff4081; color: white; box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4); }
+        .no-btn { background: #ffffff; color: #ff4081; position: relative; }
+
+    </style>
+</head>
+<body>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 400);
+    </script>
+
+    <div id="start-screen" class="container">
+        <div class="day-card">
+            <div class="teddy-box">🧸💖🧸</div>
+            <h1>Ready for 7 days of love?</h1>
+            <p>Will you be mine this week?</p>
+            <button class="btn yes-btn" onclick="showLove()">Yes!</button>
+            <button id="no-btn" class="btn no-btn" onmouseover="moveNo()" onclick="askWhy()">No</button>
+            <p id="msg" style="margin-top: 20px; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <div id="love-screen" class="container hidden">
+        <h1 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Our Romantic Week ✨</h1>
+
+        <div class="day-card">
+            <div class="teddy-box">🧸🌹</div>
+            <h3>1. Happy Rose Day</h3>
+            <p>Slide phool for my fool! You're my favorite flower.</p>
+        </div>
+
+        <div class="day-card">
+            <div class="teddy-box">🧸💍</div>
+            <h3>2. Happy Propose Day</h3>
+            <p>Still choosing you, every single day.</p>
+        </div>
+
+        <div class="day-card">
+            <div class="teddy-box">🧸🍫</div>
+            <h3>3. Happy Chocolate Day</h3>
+            <p>Something sweet for someone sweeter.</p>
+        </div>
+
+        <div class="day-card">
+            <div class="teddy-box">🧸🤝</div>
+            <h3>4. Happy Promise Day</h3>
+            <p>I promise to always keep you happy.</p>
+        </div>
+
+        <div class="day-card">
+            <div class="teddy-box">🧸🫂</div>
+            <h3>5. Happy Hug Day</h3>
+            <p>A warm teddy hug just for you.</p>
+        </div>
+
+        <div class="day-card">
+            <div class="teddy-box">🧸💋</div>
+            <h3>6. Happy Kiss Day</h3>
+            <p>Sending a thousand virtual kisses!</p>
+        </div>
+
+        <div class="day-card">
+            <div class="teddy-box">💝🧸💝</div>
+            <h3>7. Happy Valentine's Day</h3>
+            <p>You + Me = Forever. I love you!</p>
+        </div>
+    </div>
+
+    <script>
+        function moveNo() {
+            const noBtn = document.getElementById('no-btn');
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function askWhy() {
+            document.getElementById('msg').innerText = "Why you click no pls? 🥺 Try again!";
+        }
+
+        function showLove() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('love-screen').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
