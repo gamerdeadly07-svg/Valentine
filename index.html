@@ -6,78 +6,123 @@
     <title>For My Pookie ❤️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-        body { margin: 0; background-color: #fce4ec; font-family: 'Fredoka One', cursive; display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; color: #880e4f; }
-        .card { background: white; padding: 30px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); width: 90%; max-width: 400px; display: none; animation: popIn 0.5s ease; position: relative; }
+        
+        body { 
+            margin: 0; 
+            background-color: #fce4ec; 
+            font-family: 'Fredoka One', cursive; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            text-align: center; 
+            color: #880e4f; 
+        }
+
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 30px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            width: 90%; 
+            max-width: 400px; 
+            display: none; 
+            animation: popIn 0.5s ease; 
+        }
+
         .active { display: block; }
-        img { width: 180px; height: auto; margin-bottom: 10px; border-radius: 15px; }
-        .btn { background-color: #ff4081; color: white; border: none; padding: 12px 25px; font-size: 18px; border-radius: 15px; cursor: pointer; margin: 10px; transition: 0.3s; }
-        .no-btn { background-color: #f06292; position: relative; }
+
+        img { 
+            width: 200px; 
+            height: 200px; 
+            object-fit: contain; 
+            margin-bottom: 10px; 
+            border-radius: 15px; 
+        }
+
+        .btn { 
+            background-color: #ff4081; 
+            color: white; 
+            border: none; 
+            padding: 12px 25px; 
+            font-size: 18px; 
+            border-radius: 15px; 
+            cursor: pointer; 
+            margin: 10px; 
+        }
+
+        .no-btn { background-color: #f06292; }
+
         h1 { font-size: 22px; margin: 10px 0; }
         p { font-size: 16px; opacity: 0.8; margin-bottom: 20px; }
-        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        @keyframes popIn { 
+            from { transform: scale(0.8); opacity: 0; } 
+            to { transform: scale(1); opacity: 1; } 
+        }
     </style>
 </head>
 <body>
 
     <div id="p0" class="card active">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <img src="https://media.tenor.com/9tHof_NAs38AAAAM/milk-and-mocha-bear-couple.gif">
         <h1>Ready for 7 days of love?</h1>
         <button class="btn" onclick="go(1)">YES</button>
-        <button id="noBtn" class="btn no-btn" onmouseover="go('No')" onclick="go('No')">NO</button>
+        <button id="noBtn" class="btn no-btn" onclick="go('No')">NO</button>
     </div>
 
     <div id="pNo" class="card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/T1Wq6IbA6Qk5G/giphy.gif">
+        <img src="https://media.tenor.com/866uX8Y1Y_0AAAAM/milk-and-mocha.gif">
         <h1>Why did u click no!? 🥺</h1>
         <button class="btn" onclick="go(0)">TRY AGAIN</button>
     </div>
 
     <div id="p1" class="card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <img src="https://media.tenor.com/T0_4Y_WlI70AAAAM/milk-and-mocha-rose.gif">
         <p>Phool for my fool</p>
         <h1>HAPPY ROSE DAY</h1>
-        <button class="btn" onclick="go(2)">Next Day ➔</button>
+        <button class="btn" onclick="go(2)">Next Page ➔</button>
     </div>
 
     <div id="p2" class="card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/3og0IPxMM0er_vKkOk/giphy.gif">
+        <img src="https://media.tenor.com/T2640sI6J9QAAAAM/milk-and-mocha.gif">
         <p>Will you be mine?</p>
         <h1>HAPPY PROPOSE DAY</h1>
-        <button class="btn" onclick="go(3)">Next Day ➔</button>
+        <button class="btn" onclick="go(3)">Next Page ➔</button>
     </div>
 
     <div id="p3" class="card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <img src="https://media.tenor.com/y_vDeyXpWc0AAAAM/milk-and-mocha.gif">
         <p>I ate ur chocolate otw</p>
         <h1>HAPPY CHOCOLATE DAY</h1>
-        <button class="btn" onclick="go(4)">Next Day ➔</button>
+        <button class="btn" onclick="go(4)">Next Page ➔</button>
     </div>
 
     <div id="p4" class="card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <img src="https://media.tenor.com/5u-j_w977jUAAAAM/milk-and-mocha.gif">
         <p>I promise to stay by ur side</p>
         <h1>HAPPY PROMISE DAY</h1>
-        <button class="btn" onclick="go(5)">Next Day ➔</button>
+        <button class="btn" onclick="go(5)">Next Page ➔</button>
     </div>
 
     <div id="p5" class="card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <img src="https://media.tenor.com/vHqY7Y4YnOAAAAAM/milk-and-mocha.gif">
         <p>Virtual hug for ya!</p>
         <h1>HAPPY HUG DAY</h1>
-        <button class="btn" onclick="go(6)">Next Day ➔</button>
+        <button class="btn" onclick="go(6)">Next Page ➔</button>
     </div>
 
     <div id="p6" class="card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <img src="https://media.tenor.com/8U_Lw4S7Wv8AAAAM/milk-and-mocha.gif">
         <p>You wear my kisses better than me</p>
         <h1>HAPPY KISS DAY</h1>
-        <button class="btn" onclick="go(7)">Final Day ➔</button>
+        <button class="btn" onclick="go(7)">Final Page ➔</button>
     </div>
 
     <div id="p7" class="card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZnl3bXUwd3Ayb2Z4bXF5MHF4eHJ4eHJ4eHJ4eHJ4eHJ4eHImZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/m8G09N9iY2lWzW9lW4/giphy.gif">
+        <img src="https://media.tenor.com/7YV8S8Vn9uQAAAAM/milk-and-mocha.gif">
         <h1>HAPPY VALENTINE'S DAY</h1>
-        <p>Forever and always! ❤️</p>
+        <p>Forever yours! ❤️</p>
     </div>
 
     <script>
